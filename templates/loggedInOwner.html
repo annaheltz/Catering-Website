@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Owner Page</title>
+
+    </head>
+
+
+    <body>
+        
+        <h1>Owner Page</h1>
+        <h2>Events</h2>
+        <br/>
+        {%if events is defined and events|length > 0%}
+            {%for event in events%}
+                Name: {{event.name}}<br/>
+                Date: {{event.date}}<br/>
+                {%if event.workers.all()|length > 0%}
+                    Staff Working: 
+                    {%for staff in event.workers%}
+                        {{staff.username}} 
+                    {%endfor%}
+                {%else%}
+                    There are no Staff to work this event.
+                {%endif%}
+                <br/>
+                <!-- need to add works or if no one is working -->
+                <hr><br/>
+            {%endfor%}
+        {%else%}
+            Sadly, there are no events currently scheduled.
+        {%endif%}
+        <br/>
+        <a href="{{ url_for('staffCreateOrLogOut', what = 'create') }}">Create Staff</a>
+        <br>
+        <a href="{{ url_for('staffCreateOrLogOut', what = 'logout') }}">Log Out</a>
+            
+    </body>
+
+</html>

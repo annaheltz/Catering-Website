@@ -1,0 +1,25 @@
+<h2>Login</h2>
+
+<form action="{{ url_for('logInAs', ownerStaffOrCus = 'owner' ) }}" method="get">
+  <dl>
+    <dd><input type="submit" value="Log in as Owner">
+  </dl>
+</form>
+
+<form action="{{ url_for('logInAs', ownerStaffOrCus = 'staff' ) }}" method="get">
+  <dl>
+    <dd><input type="submit" value="Log in as Staff">
+  </dl>
+</form>
+
+<form action="{{ url_for('logInAs', ownerStaffOrCus = 'customer' ) }}" method="get">
+  <dl>
+    <dd><input type="submit" value="Log in as Customer">
+  </dl>
+</form>
+
+<form action="{{ url_for('logInAs', ownerStaffOrCus = 'create' ) }}" method="get">
+  <dl>
+    <dd><input type="submit" value="Create Customer Account">
+  </dl>
+</form>

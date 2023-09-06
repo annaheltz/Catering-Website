@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Customer Page</title>
+
+    </head>
+
+
+    <body>
+        
+        <h1>Customer Page</h1>
+
+        <h2>My Events</h2>
+        {%if myEvents is defined and myEvents|length > 0%}
+            {%for event in myEvents%}
+                Name: {{event.name}}<br/>
+                Date: {{event.date}}<br/>
+                <a href="{{ url_for('custFunctions', what = 'cancel', event_id = event.id) }}">Cancel Event</a><br/>
+                <hr><br/>
+            {%endfor%}
+            Click here to schedule another event!
+            <a href="{{ url_for('custFunctions', what = 'create', event_id = 0) }}">Create Event</a>
+            <br/>
+        {%else%}
+            You do not have any events planned! Click here to create one!
+            <a href="{{ url_for('custFunctions', what = 'create', event_id = 0) }}">Create Event</a>
+            <br/>
+        {%endif%}
+        
+        <a href="{{ url_for('custFunctions', what = 'logout', event_id = 0) }}">Log Out</a>
+        <br>
+        
+            
+    </body>
+
+</html>

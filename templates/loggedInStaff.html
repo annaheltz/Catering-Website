@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Staff Page</title>
+
+    </head>
+
+
+    <body>
+        
+        <h1>Staff Page</h1>
+        
+        <a href="{{ url_for('staffFunctions', what = 'logout', event_id= 0) }}">Log Out</a>
+
+        <h2>Available Events to work</h2>
+
+        
+        {% for event in availableEvents %}
+            Name: {{event.name}}<br>
+            Date: {{event.date}}<br>
+            <form action="{{ url_for('staffFunctions', what = 'add', event_id = event.id) }}" method = "post">
+                <dd><input type="submit" value = "Add to schedule"></dd>
+            </form>
+        {% endfor %}
+
+        <h2>My Events</h2>
+
+        {% for event in myEvents %}
+            Name: {{event.name}} <br>
+            Date: {{event.date}} <br><br>
+        {% endfor %}
+            
+    </body>
+
+</html>

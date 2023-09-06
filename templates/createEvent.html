@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Create Event</title>
+
+    </head>
+
+
+    <body>
+        
+        <h1>Create Event</h1>
+
+        <p>
+          {%if checkDate != None%}
+            {{checkDate}}
+          {%endif%}
+        </p>
+        <form action="{{ url_for('createEvent', what = 'create')}}" method="post">
+            <dl>
+              <dt>Enter Event Date:
+              <dd><input type="date" name="date">
+              <dt>Enter Event Name:
+              <dd><input type="text" name="name">
+              <dd><input type="submit" value="Create Event">
+            </dl>
+          </form>
+
+          <a href="{{ url_for('createEvent', what = 'logout')}}">Log Out</a>
+
+          
+
+
+    </body>
+
+</html>
